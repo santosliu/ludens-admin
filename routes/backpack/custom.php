@@ -14,4 +14,5 @@ Route::group([
     // 你的自訂路徑
     Route::crud('proper-noun', 'ProperNounCrudController');
     Route::crud('unpublish-game', 'UnpublishGameCrudController');
+    Route::crud('news-request', 'NewsRequestCrudController');
 });
