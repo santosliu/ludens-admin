@@ -29,6 +29,9 @@ class UnpublishGameCrudController extends CrudController
         CRUD::setModel(\App\Models\UnpublishGame::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/unpublish-game');
         CRUD::setEntityNameStrings('unpublish game', 'unpublish games');
+
+        // 禁用 ShowOperation，因為目前沒有特別設定其欄位
+        $this->crud->denyAccess('show');
     }
 
     /**
