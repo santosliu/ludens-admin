@@ -3,4 +3,5 @@
 
 <x-backpack::menu-item title="字彙表" icon="la la-question" :link="backpack_url('proper-noun')" />
 <x-backpack::menu-item title="未上市遊戲" icon="la la-question" :link="backpack_url('unpublish-game')" />
+<x-backpack::menu-item title="排程撈取功能" icon="la la-question" :link="backpack_url('news-request')" />
 <x-backpack::menu-item title="Users" icon="la la-question" :link="backpack_url('user')" />

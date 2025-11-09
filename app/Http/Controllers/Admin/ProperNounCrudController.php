@@ -39,7 +39,7 @@ class ProperNounCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        // CRUD::setFromDb(); // set columns from db columns.
+        $this->crud->setDefaultPageLength(100);
 
         CRUD::addColumn([
             'name'  => 'url',

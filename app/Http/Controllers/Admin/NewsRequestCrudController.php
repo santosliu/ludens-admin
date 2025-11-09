@@ -38,6 +38,8 @@ class NewsRequestCrudController extends CrudController
      */
     protected function setupListOperation()
     {
+        $this->crud->setDefaultPageLength(100);
+
         CRUD::addColumn([
             'name'    => 'url',
             'label'   => '網址',

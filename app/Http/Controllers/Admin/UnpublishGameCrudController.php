@@ -42,6 +42,9 @@ class UnpublishGameCrudController extends CrudController
      */
     protected function setupListOperation()
     {
+
+        $this->crud->setDefaultPageLength(100);
+        
         CRUD::addColumn([
             'name'  => 'game_name',
             'label' => '遊戲名稱',
