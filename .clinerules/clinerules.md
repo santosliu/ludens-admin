@@ -53,5 +53,9 @@
 ## 6. Git 工作流程
 
 -   遵循 Feature Branch Workflow。從 `main` 或 `develop` 分支建立新分支進行開發。
--   Commit 訊息應清晰明瞭，描述該次提交的目的。
+-   Commit 訊息應清晰明瞭，並**使用繁體中文**描述該次提交的目的。
+    -   **Commit 執行方式：** 由於 `git commit -m "訊息"` 在特定終端機環境下可能因引號解析問題而失敗，建議採用以下更穩健的流程：
+        1.  將 commit 訊息寫入一個暫存檔案（例如 `commit_message.txt`）。
+        2.  執行 `git commit -F commit_message.txt`。
+        3.  執行 `del commit_message.txt` (Windows) 或 `rm commit_message.txt` (Linux/macOS) 刪除暫存檔案。
 -   提交程式碼前，確保所有測試都已通過。
