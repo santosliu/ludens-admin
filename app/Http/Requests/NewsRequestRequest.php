@@ -25,7 +25,7 @@ class NewsRequestRequest extends FormRequest
     public function rules()
     {
         return [
-            'url' => 'required|url|max:200|unique:news_requests,url,' . $this->id,
+            'url' => 'required|url|max:200|unique:news_request,url,' . $this->id,
             'status' => 'required|integer',
         ];
     }
