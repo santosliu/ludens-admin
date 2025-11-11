@@ -27,4 +27,18 @@ class Handler extends ExceptionHandler
             //
         });
     }
+
+    public function render($request, Throwable $exception)
+{
+        if ($exception instanceof \Illuminate\Session\TokenMismatchException) {
+            \Log::error('CSRF Token Mismatch', [
+                'session_id' => session()->getId(),
+                'has_token' => session()->has('_token'),
+                'request_token' => $request->input('_token'),
+                'session_token' => session()->token(),
+            ]);
+        }
+        
+        return parent::render($request, $exception);
+    }
 }
