@@ -55,7 +55,11 @@ return [
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
             'throw' => false,
         ],
-
+        'external_scripts' => [
+            'driver' => 'local',
+            'root'   => '/var/www/html/ludens-python-scripts/temp', // 這裡設定您的 Linux 絕對路徑
+            'throw'  => false,
+        ],
     ],
 
     /*

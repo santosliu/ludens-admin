@@ -48,6 +48,12 @@ class NewsRequestCrudController extends CrudController
         ]);
 
         CRUD::addColumn([
+            'name'    => 'game',
+            'label'   => '遊戲名稱',
+            'type'    => 'text',
+        ]);
+       
+        CRUD::addColumn([
             'name'    => 'status',
             'label'   => '狀態',
             'type'    => 'boolean',
@@ -73,13 +79,16 @@ class NewsRequestCrudController extends CrudController
         CRUD::field('url')->type('url')->attributes([
             'maxlength' => 250,
         ]);
+
+        // 使用 Backpack 的 fluent 語法來定義上傳欄位
+        CRUD::field('file_name')
+            ->type('upload')
+            ->label('上傳文件')
+            ->upload(true)
+            ->disk('external_scripts');
+
         CRUD::field('status')->type('switch');
 
-        /**
-         * Fields can be defined using the fluent syntax or array syntax:
-         * - CRUD::field('price')->type('number');
-         * - CRUD::addField(['name' => 'price', 'type' => 'number'])); 
-         */
     }
 
     /**

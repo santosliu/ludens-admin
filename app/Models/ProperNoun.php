@@ -19,6 +19,7 @@ class ProperNoun extends Model
     protected $fillable = [
         'url',
         'unknown_noun',
+        'topic',
         'translated_noun',
         'pass',
     ];
