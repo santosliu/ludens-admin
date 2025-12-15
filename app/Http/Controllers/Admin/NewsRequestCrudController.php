@@ -80,14 +80,32 @@ class NewsRequestCrudController extends CrudController
             'maxlength' => 250,
         ]);
 
-        // 使用 Backpack 的 fluent 語法來定義上傳欄位
+        // game 欄位：從 proper_nouns 表抓取 distinct(topic) 當作選項
+        $topics = \App\Models\ProperNoun::query()
+            ->distinct()
+            ->pluck('topic')
+            ->filter()
+            ->values()
+            ->all();
+
+        $topicOptions = [];
+        foreach ($topics as $t) {
+            $topicOptions[$t] = $t;
+        }
+
+        CRUD::addField([
+            'name'    => 'game',
+            'label'   => '遊戲名稱',
+            'type'    => 'select2_from_array',
+            'options' => $topicOptions,
+            'allows_null' => true,
+        ]);
+
         CRUD::field('file_name')
             ->type('upload')
             ->label('上傳文件')
             ->upload(true)
             ->disk('external_scripts');
-
-        CRUD::field('status')->type('switch');
 
     }
 
