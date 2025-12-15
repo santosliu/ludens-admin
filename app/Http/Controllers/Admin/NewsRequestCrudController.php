@@ -96,7 +96,7 @@ class NewsRequestCrudController extends CrudController
         CRUD::addField([
             'name'    => 'game',
             'label'   => '遊戲名稱',
-            'type'    => 'select2_from_array',
+            'type'    => 'select_from_array',
             'options' => $topicOptions,
             'allows_null' => true,
         ]);
