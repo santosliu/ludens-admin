@@ -40,6 +40,9 @@ class NewsRequestCrudController extends CrudController
     {
         $this->crud->setDefaultPageLength(100);
 
+        // 只顯示尚未處理的項目 (status != 1)
+        CRUD::addClause('where', 'status', '!=', 1);
+
         CRUD::addColumn([
             'name'    => 'url',
             'label'   => '網址',
