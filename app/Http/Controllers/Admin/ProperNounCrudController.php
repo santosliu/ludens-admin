@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\ProperNounRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+use Backpack\CRUD\app\Library\Widget;
 
 /**
  * Class ProperNounCrudController
@@ -46,19 +47,23 @@ class ProperNounCrudController extends CrudController
             'name' => 'unknown_noun',
             'label' => '需翻譯字彙',
             'type' => 'text', // 欄位類型
+            'limit' => 255, // 不截斷（預設 32 字）
         ]);
 
         CRUD::addColumn([
             'name' => 'translated_noun',
             'label' => '字彙翻譯',
             'type' => 'text', // 欄位類型
+            'limit' => 255, // 不截斷（預設 32 字）
         ]);
 
         CRUD::addColumn([
             'name' => 'pass',
-            'label' => '跳過不取代',
+            'label' => '跳過',
             'type' => 'boolean', // 欄位類型
         ]);
+
+        Widget::add()->to('before_content')->type('view')->view('admin.proper_noun_column_widths');
 
         CRUD::setOperationSetting('lineButtonsAsDropdown', true);
         CRUD::setOperationSetting('pageLength', 25);
